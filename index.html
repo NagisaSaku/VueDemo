@@ -1,0 +1,64 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span v-if="seen">Now you see me</span>
+    </div>
+    <br></br>
+    <div id="app-2">
+        <span v-bind:title="message">
+            鼠标悬停几秒查看动态绑定的提示信息！
+        </span>
+    </div>
+    <div id="app-3">
+        <ol start="23">
+            <li v-for="todo in todos ">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    <div id="app-4">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">逆转消息</button>
+    </div>
+    <div id="app-5">
+        <p>{{message}}</p>
+        <input v-model="message">
+    </div>
+    <div id="app-6">
+        <ol>
+            <todo-item></todo-item>
+        </ol>
+    </div>
+    <div id="app-7">
+        <ol>
+            <todo-item
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id">                
+            </todo-item>
+        </ol>
+    </div>
+    <div id="app-8">
+        <p>Original message :"{{ message }}"</p>
+        <p>Compute reversed message :"{{ reversedMessage }}"</p>
+    </div>
+    <div id="app-9">{{fullName}}</div>
+    <div id="app-10">
+        <p>
+            Ask a yes/no question:
+            <input v-model="question">
+        </p>
+        <p>{{answer}}</p>
+    </div>
+    <div id="app-11" v-bind:class="classObject">
+        <p>你大爷依旧是你大爷</p>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
